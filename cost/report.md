@@ -1,3 +1,5 @@
+# Historical local-model report — superseded by cost/README.md
+
 # Cost and runtime: measured, projected, unavailable
 
 Measured on the unchanged `cost_100.csv`: 100 completed, 0 remaining; 100 unique texts. Cold result cache was empty. Input SHA256: `c884ac3b9be5066995d5063f96ad9af6e5e082975788c1684c4f6b6ea661dd0e`.

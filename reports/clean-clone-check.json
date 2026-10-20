@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "repository_public_without_authentication": true,
+  "clean_clone_offline_cost_replay": true,
+  "hosted_control_tests_passed": true,
+  "ranking_byte_identical_without_model_calls": true,
+  "provider_credentials_removed_from_environment": true,
+  "cloned_commit": "443d2d46fd46eace6118ebe9334cb5942b52d67a"
+}

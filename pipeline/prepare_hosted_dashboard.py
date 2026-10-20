@@ -9,6 +9,10 @@ def build():
  d=h.c.dbopen(h.STATE/'partial.sqlite');completed=d.execute('SELECT count(*) FROM labels WHERE config=?',(h.LABEL_CONFIG,)).fetchone()[0]
  if completed<100000:raise RuntimeError('Final hosted dashboard requires >=100000 completed rows')
  packs=[json.loads(r[0]) for r in d.execute('SELECT payload FROM aggregates WHERE config=?',(h.LABEL_CONFIG,))];chosen=set()
+ names_path=ROOT/'evidence/hosted/partial-group-titles.json'
+ if names_path.exists():
+  names={r['issue_id']:r['title'] for r in json.loads(names_path.read_text())['titles']}
+  for pack in packs:pack['title']=names[pack['issue_id']]
  for p in packs:chosen.update(e['review_id'] for e in p['evidence'])
  # At most 400 reviews, including every cited source and a deterministic sample.
  candidates=d.execute('SELECT s.id FROM sources s JOIN labels l ON s.id=l.id WHERE l.config=? ORDER BY s.text_hash,s.ordinal LIMIT 400',(h.LABEL_CONFIG,))

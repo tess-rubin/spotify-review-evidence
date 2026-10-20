@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "public_dashboard_anonymous_http": 200,
+  "public_artifact_anonymous_http": 200,
+  "artifact_bytes": 80920339,
+  "artifact_sha256": "788d19cf946416cd5ab57fff809783ba2be12e537b708d3716e72628ff559652",
+  "github_asset_digest_matches": true,
+  "dashboard_classifications": 100000,
+  "site": "https://spotify-review-evidence.tess-rubin.chatgpt.site/",
+  "repository": "https://github.com/tess-rubin/spotify-review-evidence",
+  "release": "https://github.com/tess-rubin/spotify-review-evidence/releases/tag/final-partial"
+}

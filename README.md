@@ -134,3 +134,5 @@ The separate full-source accounting export retains all 660,622 IDs and the 13 em
 ## Public access and private evidence
 
 The dashboard is public and needs no grader invitation. GitHub source and the sanitized release are intended for signed-out inspection. Human golden answers and per-review human comparisons are intentionally excluded from public GitHub and its release; provide the grader's email for a private evidence handoff. The final public repository URL is the course submission deliverable; the student must submit it through bCourses.
+
+Verified signed-out checks: [public URLs and artifact digest](reports/public-access.json); [clean clone, offline replay and ranking reproduction](reports/clean-clone-check.json). No grader invitation is required for the public site or repository. Private human-answer evidence is a separate handoff.
