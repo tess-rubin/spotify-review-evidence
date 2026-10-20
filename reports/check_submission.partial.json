@@ -83,29 +83,22 @@
     "valid_completed": 100000,
     "valid_completion_fraction": 1.0
   },
-  "examples": [
-    {
-      "code": "missing_model_roles",
-      "detail": "['group']"
-    }
-  ],
+  "examples": [],
   "hash_convention": "Reference/benchmark: canonical UTF-8 JSON via canonical(); input files and audit script: exact bytes.",
   "input_files_sha256": {
     "analysis_scope.csv": "ceddd4493ad162776cfbc45e24eb3cd35f6d84b3c2d00a1616b9e7cb1f86ae2a",
-    "calls.jsonl": "f3ad00ea4ffc851021ba42104c86a3a6dafc41e3a70f7fd1680a2e0d5b320848",
+    "calls.jsonl": "c3bd39985fee6eebff10f9fe9490d95420b1e40af723bb793c39c61206637693",
     "checkpoint_after.json": "7f23a241787113815212d388164d50670c96f51ca80500043ce13851a8852743",
     "checkpoint_before.json": "058c5c2920cce1e65b06bf31c1a5ab6676f1480cd7382b56baf7128b59e36fe9",
     "claims.csv": "ad72359b5bf0950b7cc0fc2e698e49486b7fc02d2144985856612044e87eadac",
     "ingestion.json": "5512dd793b0bde3bd51f28b20b440108f3c9bab31233819bea5f32ce19482153",
     "membership.csv": "b65c0e1912559d3cf38db51f571e84b4db54f4a4c5db22fab51f6c212fbbe7cc",
     "ranking.csv": "4f4888309c92a618ea99847a25a066b08db9c45183c1c5fb228b83cc13b0d709",
-    "records.jsonl.gz": "a91148d21fbe9a208cb291ecb3e4b0751c6ee82e6dc22d03ed196c1612178d5e",
-    "run.json": "3b9738d6e7a10a2ea6024f4806f3405bf9ed6345b466a3777cb856cd7efdd426",
-    "unsettled_attempts.jsonl": "a50b3ffa0e2e0a9c1caacc4683a64b2028bab5e9cee2158b78a41815981ceb61"
+    "records.jsonl.gz": "b41964655d5d73538dc6591d41441fd3a0134258f80be1325ca4245dcaafb670",
+    "run.json": "bd2c2e0ea51c66a3d3f480baad0d65b2af29796e708465315f0f7bf65dabe89a",
+    "unsettled_attempts.jsonl": "bab097701ed6f0c1afd96fb9e8bdd29bea39f06da124f96ac0b2c320cdd027b4"
   },
-  "issue_counts": {
-    "missing_model_roles": 1
-  },
+  "issue_counts": {},
   "limits": [
     "Artifacts do not prove actual model execution, authorship, cost, or independent verification.",
     "Exact quote membership does not prove that the quote supports the label.",
@@ -117,9 +110,9 @@
     "status": "not_supplied"
   },
   "reference_sha256": "c818dc57918cd044571c72f4df1a4d2667c94e28c5c47dd937763fbebc51f245",
-  "reported_calls": 1587,
-  "reported_input_tokens": 2690270,
-  "reported_output_tokens": 2263659,
-  "status": "review_required",
+  "reported_calls": 1588,
+  "reported_input_tokens": 2691803,
+  "reported_output_tokens": 2263785,
+  "status": "pass",
   "working_coverage_point_candidate": 1.0
 }

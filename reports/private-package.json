@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "private_archive": "spotify-private-evaluation.zip",
+  "bytes": 14939,
+  "sha256": "47cb475208f84e4db9b3ae44a65de129e66c166c2a4cbae86c5b2a2852574eed",
+  "files": 6,
+  "human_labels_rows": 50,
+  "publicly_uploaded": false,
+  "credentials_included": false
+}

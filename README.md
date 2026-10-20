@@ -24,7 +24,7 @@ The [assignment rubric](https://docs.google.com/document/d/1PUFw56OGxqbUxiFm0vKt
 
 | Criterion | Evidence and practical limits |
 |---|---|
-| D1: accessible code, setup and artifacts | Commands below; `.env.example`; public dashboard; `final-partial` release. Private human answers require a secure instructor handoff and are excluded from GitHub. |
+| D1: accessible code, setup and artifacts | Commands below; `.env.example`; public dashboard; `final-partial` release. Private human answers and comparisons are packaged separately and excluded from GitHub. |
 | D2: architecture, schema and provenance | Diagram below; [labels](LABELS.md); [hosted adapter](pipeline/hosted.py); [frozen configuration](pipeline/configs/hosted-luna.json); exact source row hashes and direct cache links in `grading/records.jsonl.gz`. |
 | D3: memo numbers, calculations and source evidence | [Memo](MEMO.md); `grading/claims.csv`, `ranking.csv`, `membership.csv`; [source-to-claim trace](reports/review-trace.json). |
 | D4: coherent recommendation, alternatives and limitations | Memo prioritizes playback and compares usability and billing; deterministic partial cohort and diagnostic accuracy limitations are explicit. |
@@ -43,6 +43,7 @@ flowchart LR
   P --> E[GPT-6 Luna: compact batches up to 50]
   E --> V[Blind GPT-6 Luna verification sample]
   E --> G[Code: stable issue membership]
+  G --> N[GPT-6 Luna: names for existing issues only]
   G --> R[Code: integer severity sum and ranking]
   R --> M[GPT-6 Luna: bounded recommendation actions]
   E --> DB[(SQLite: source, labels, cache, attempts, ledger)]
@@ -56,7 +57,7 @@ flowchart LR
 
 Code owns IDs, hashes, validation, queues, caching, arithmetic, scope and budgets. The model supplies topic, intent, severity, sentiment and needs_review. Code adds the full unchanged source text as evidence and `entities: []`: **entities were not extracted**. Full-text quotes establish provenance, not semantic correctness. Stars/metadata never enter classification inputs. Prompt/schema/settings hashes invalidate results when configuration changes.
 
-Each complaint/cancellation has one stable `issue-<topic>` membership. Priority is integer `severity_sum`, exactly count × mean severity; sort descending then ascending issue ID. Means use six-decimal half-up rounding. Grouping/ranking remain code. The supplied checker additionally requires a successful model `group` role; a bounded issue-naming call is pending user authorization. No fake call is logged.
+Each complaint/cancellation has one stable `issue-<topic>` membership. Priority is integer `severity_sum`, computed from individual severity labels before rounding the mean; sort descending then ascending issue ID. Means use six-decimal half-up rounding. Grouping/ranking remain code. The supplied checker additionally requires a successful model `group` role; a genuine bounded issue-naming call named the eight existing issues from saved evidence. Its actual input, output, usage and cost are in [group-naming.json](reports/group-naming.json). Membership and ranking were preserved. The call used 1,533 input and 126 output tokens and cost $0.000217.
 
 Memo generation receives saved aggregates and two source examples per issue. The model selects an evidence reference; code binds the exact original ID and quote. The repaired validator allows source-grounded device identifiers such as Galaxy M51 while rejecting unsupported numeric claims. All eight final citations match source records. Prose grounding still needs human judgment.
 
@@ -78,7 +79,7 @@ The unchanged `cost_100.csv` cold pilot used two 50-review requests: **3,325 inp
 
 The completed cohort's classification wall span was **18,463.696 seconds (5.13 hours)**, including the experiment pause; summed classification HTTP time was 17,747.548 seconds. These are measured durations, distinct from the earlier 7.3-hour no-reuse projection. [Final run summary](reports/run-summary.json) and `cost/hosted-final-summary.json` distinguish measurements and projections.
 
-All project hosted calls share one persistent ledger, including pilots, abandoned experiments, security checks, retries, verification and memo. The strict ceiling is **$4.90**, including actual usage-based costs plus outstanding worst-case reservations. Recorded project API usage cost is **$1.408096**, plus **$0.006007** held for unavailable usage, below the $4.90 cap. See `reports/run-summary.json`. No provider invoice reconciliation is claimed. Two interrupted requests have unavailable token usage and **$0.006007 held**, never invented as zero. The strict known-usage `calls.jsonl` adapter and separate `unsettled_attempts.jsonl` together retain all relevant attempts.
+All project hosted calls share one persistent ledger, including pilots, abandoned experiments, security checks, retries, verification and memo. The strict ceiling is **$4.90**, including actual usage-based costs plus outstanding worst-case reservations. Recorded project API usage cost is **$1.408313**, plus **$0.007535** held for unavailable usage, below the $4.90 cap. See `reports/run-summary.json`. No provider invoice reconciliation is claimed. Two interrupted requests and one network-blocked issue-naming attempt have unavailable token usage and **$0.007535 held**, never invented as zero. The strict known-usage `calls.jsonl` adapter and separate `unsettled_attempts.jsonl` together retain all relevant attempts.
 
 Standard rates checked October 18: $0.10 input, $0.01 cached input and $0.50 output per million tokens; [official pricing](https://developers.openai.com/api/docs/models/gpt-6-luna). Requests use reasoning `none`, standard tier, one worker, capped output, one invalid-output retry and bounded rate-limit retries. A byte-based worst-case input reservation plus capped output is made atomically before dispatch. Unknown charges remain held. A reservation overrun records actual usage and blocks further dispatch. No stronger fallback is enabled. Existing hardware, ordinary electricity and existing subscriptions are excluded from the user's budget; no new paid hosting was purchased.
 
@@ -127,12 +128,12 @@ python3 supplied/check_submission.py reference --full supplied/spotify_reviews_1
 python3 supplied/check_submission.py check --reference data/hosted/partial-reference.json --submission grading --out self-check.json
 ```
 
-Current partial report: all 100,000 records valid; no missing/duplicate IDs, bad hashes, invalid cache provenance, membership/ranking or claim errors. The remaining flag is the required model `group` role, pending authorization. This is **review_required**, not a claimed pass. Unknown usage is visibly preserved outside the checker's integer-only known-usage adapter.
+Current partial report: all 100,000 records valid; no missing/duplicate IDs, bad hashes, invalid cache provenance, membership/ranking or claim errors. The required model `group` role is now satisfied by the genuine issue-naming call. The declared 100,000-review partial-scope checker **passes with no flags**. Unknown usage is visibly preserved outside the checker's integer-only known-usage adapter.
 
-The separate full-source accounting export retains all 660,622 IDs and the 13 empty-text reasons. Its [full-scope report](reports/check_submission.full-accounting.json) honestly flags unfinished classification and the same missing role. The full-source coverage-point candidate is 0.4908 under the supplied formula; the cohort's 100% validation is not a claim of full-source classification. The amended assignment accepts at least 100,000 reviews, but an instructor determines the grade.
+The separate full-source accounting export retains all 660,622 IDs and the 13 empty-text reasons. Its [full-scope report](reports/check_submission.full-accounting.json) honestly flags unfinished classification outside the declared partial cohort. The full-source coverage-point candidate is 0.4908 under the supplied formula; the cohort's 100% validation is not a claim of full-source classification. The amended assignment accepts at least 100,000 reviews, but an instructor determines the grade.
 
 ## Public access and private evidence
 
-The dashboard is public and needs no grader invitation. GitHub source and the sanitized release are intended for signed-out inspection. Human golden answers and per-review human comparisons are intentionally excluded from public GitHub and its release; provide the grader's email for a private evidence handoff. The final public repository URL is the course submission deliverable; the student must submit it through bCourses.
+The dashboard is public and needs no grader invitation. GitHub source and the sanitized release are intended for signed-out inspection. Human golden answers and per-review human comparisons are intentionally excluded from public GitHub and its release; the separate local `spotify-private-evaluation.zip` contains those files for an approved private handoff. No email is needed for the public artifacts, and no private evidence has been sent. The final public repository URL is the course submission deliverable; the student must submit it through bCourses.
 
 Verified signed-out checks: [public URLs and artifact digest](reports/public-access.json); [clean clone, offline replay and ranking reproduction](reports/clean-clone-check.json). No grader invitation is required for the public site or repository. Private human-answer evidence is a separate handoff.

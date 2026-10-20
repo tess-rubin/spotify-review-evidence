@@ -8,5 +8,11 @@
   "ranking_fields_match_database": true,
   "all_recommendation_citations_match_source": true,
   "ranked_issues": 8,
-  "recommendations": 8
+  "recommendations": 8,
+  "verified_date": "2026-10-20",
+  "new_issue_titles_match_saved_model_output": true,
+  "cost_and_unknown_reservations_match_shared_ledger": true,
+  "api_cost_usd": 1.408313,
+  "unknown_reserved_usd": 0.007535,
+  "saved_version": 5
 }

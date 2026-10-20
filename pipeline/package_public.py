@@ -5,11 +5,11 @@ ROOT=Path(__file__).resolve().parents[1]
 def build():
  files=[]
  for base in ('grading','reports'):
-  files.extend(p for p in (ROOT/base).rglob('*') if p.is_file() and p.name!='public-artifact-scan.json')
+  files.extend(p for p in (ROOT/base).rglob('*') if p.is_file() and p.name not in ('public-artifact-scan.json','public-access.json'))
  for name in ('records.jsonl.gz','run.json','ingestion.json'):
   p=ROOT/'evidence/hosted/full-accounting'/name
   if p.exists():files.append(p)
- for name in ('resume.cast','resume.html','resume-check.json','checkpoint_before.json','checkpoint_after.json','partial-verify.json','partial-verification-comparison.json','partial-memo.json','security-check.json','security-cases-before.json','review-trace.json','dashboard-consistency.json'):
+ for name in ('resume.cast','resume.html','resume-check.json','checkpoint_before.json','checkpoint_after.json','partial-group-titles.json','partial-verify.json','partial-verification-comparison.json','partial-memo.json','security-check.json','security-cases-before.json','review-trace.json','dashboard-consistency.json'):
   p=ROOT/'evidence/hosted'/name
   if p.exists():files.append(p)
  files.extend(p for p in (ROOT/'cost').glob('hosted-*') if p.is_file() and not p.name.endswith('console.json'))

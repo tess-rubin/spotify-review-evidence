@@ -8,17 +8,20 @@
   "unclassified_nonempty": 560609,
   "historical_gemma_separate": 66577,
   "budget": {
-    "spent_usd": 1.408096,
-    "reserved_or_unknown_usd": 0.006007,
+    "spent_usd": 1.408313,
+    "reserved_or_unknown_usd": 0.007535,
     "hard_cap_usd": 4.9
   },
   "public_url": "https://spotify-review-evidence.tess-rubin.chatgpt.site/",
   "public_dashboard_evidence_sample": 400,
   "classification_wall_span_including_pauses_seconds": 18463.696140527725,
-  "checker_status": "review_required",
+  "checker_status": "pass",
   "api_budget": {
-    "spent_usd": 1.408096,
-    "reserved_or_unknown_usd": 0.006007,
+    "spent_usd": 1.408313,
+    "reserved_or_unknown_usd": 0.007535,
     "hard_cap_usd": 4.9
-  }
+  },
+  "checker_issue_counts": {},
+  "all_attempts_in_partial_db": 1591,
+  "known_usage_calls_in_partial_db": 1588
 }

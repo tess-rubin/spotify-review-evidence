@@ -8,16 +8,16 @@
   "direct_classifications": 78992,
   "cache_aliases": 21008,
   "api_budget": {
-    "spent_usd": 1.408096,
-    "reserved_or_unknown_usd": 0.006007,
+    "spent_usd": 1.408313,
+    "reserved_or_unknown_usd": 0.007535,
     "hard_cap_usd": 4.9
   },
   "classification_wall_span_including_pause_seconds": 18463.696140527725,
   "classification_http_seconds": 17747.548142148647,
   "pilot_cold_enrichment_seconds": 22.814088250044733,
   "pilot_warm_enrichment_seconds": 0.0043290420435369015,
-  "known_usage_calls_in_partial_db": 1587,
-  "all_attempts_in_partial_db": 1589,
+  "known_usage_calls_in_partial_db": 1588,
+  "all_attempts_in_partial_db": 1591,
   "unknown_attempts": 2,
   "original_golden_accuracy": {
     "topic": 0.74,
@@ -25,5 +25,7 @@
     "severity": 0.66
   },
   "original_golden_all_three": 22,
-  "production_golden_tuned": false
+  "production_golden_tuned": false,
+  "checker_status": "pass",
+  "checker_issue_counts": {}
 }

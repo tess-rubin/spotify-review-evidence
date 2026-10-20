@@ -1,9 +1,9 @@
 {
   "status": "passed",
   "archive": "spotify-public-evidence.zip",
-  "bytes": 80920339,
-  "sha256": "788d19cf946416cd5ab57fff809783ba2be12e537b708d3716e72628ff559652",
-  "files": 47,
+  "bytes": 80935614,
+  "sha256": "c48ffffa496bc51034f16687f7b929d557a50ba02f9f06f2d2ae2ec49a07c52b",
+  "files": 52,
   "human_answer_files_excluded": true,
   "credentials_and_databases_excluded": true,
   "contains_processed_source_text": true,
