@@ -1,0 +1,9 @@
+{
+  "input": 0.1,
+  "cached_input": 0.01,
+  "output": 0.5,
+  "reservation_input": 0.125,
+  "unit": "USD per million tokens",
+  "checked_date": "2026-10-18",
+  "source": "https://developers.openai.com/api/docs/models/gpt-6-luna"
+}

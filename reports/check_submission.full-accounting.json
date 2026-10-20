@@ -1,0 +1,130 @@
+{
+  "audit_script_sha256": "d60bd66d84922d934c65b3d42b2c7d36cc738e8c75e2d6f2b2f58bca3141c26d",
+  "audit_version": "a5-audit-v1",
+  "automatic_grade": null,
+  "calculated_ranking": [
+    {
+      "complaint_count": 10033,
+      "issue_id": "issue-playback",
+      "mean_severity": "3.280574",
+      "priority_score": 32914,
+      "rank": 1,
+      "severity_sum": 32914
+    },
+    {
+      "complaint_count": 12001,
+      "issue_id": "issue-usability",
+      "mean_severity": "2.631864",
+      "priority_score": 31585,
+      "rank": 2,
+      "severity_sum": 31585
+    },
+    {
+      "complaint_count": 2366,
+      "issue_id": "issue-billing",
+      "mean_severity": "2.949281",
+      "priority_score": 6978,
+      "rank": 3,
+      "severity_sum": 6978
+    },
+    {
+      "complaint_count": 2518,
+      "issue_id": "issue-catalog",
+      "mean_severity": "2.745830",
+      "priority_score": 6914,
+      "rank": 4,
+      "severity_sum": 6914
+    },
+    {
+      "complaint_count": 2994,
+      "issue_id": "issue-other",
+      "mean_severity": "2.075818",
+      "priority_score": 6215,
+      "rank": 5,
+      "severity_sum": 6215
+    },
+    {
+      "complaint_count": 1335,
+      "issue_id": "issue-downloads",
+      "mean_severity": "3.219476",
+      "priority_score": 4298,
+      "rank": 6,
+      "severity_sum": 4298
+    },
+    {
+      "complaint_count": 1072,
+      "issue_id": "issue-access",
+      "mean_severity": "3.705224",
+      "priority_score": 3972,
+      "rank": 7,
+      "severity_sum": 3972
+    },
+    {
+      "complaint_count": 102,
+      "issue_id": "issue-support",
+      "mean_severity": "2.833333",
+      "priority_score": 289,
+      "rank": 8,
+      "severity_sum": 289
+    }
+  ],
+  "coverage": {
+    "accounted_fraction": 1.0,
+    "duplicate_ids": 0,
+    "expected": 660622,
+    "invalid_or_unresolved": 0,
+    "labelable": 660609,
+    "labelable_completion_fraction": 0.151375,
+    "missing": 0,
+    "quarantined": 560622,
+    "received_lines": 660622,
+    "unique_expected_ids": 660622,
+    "valid_cache_reuses": 21008,
+    "valid_completed": 100000,
+    "valid_completion_fraction": 0.151372
+  },
+  "examples": [
+    {
+      "code": "unfinished_classification",
+      "detail": "560609"
+    },
+    {
+      "code": "missing_model_roles",
+      "detail": "['group']"
+    }
+  ],
+  "hash_convention": "Reference/benchmark: canonical UTF-8 JSON via canonical(); input files and audit script: exact bytes.",
+  "input_files_sha256": {
+    "calls-complete-with-unknown.jsonl": "a56d399f9cc4bbb1159b04a4fc8747ae0cf47ae83c647dc04a4f040dfd0c641a",
+    "calls.jsonl": "f3ad00ea4ffc851021ba42104c86a3a6dafc41e3a70f7fd1680a2e0d5b320848",
+    "checkpoint_after.json": "7f23a241787113815212d388164d50670c96f51ca80500043ce13851a8852743",
+    "checkpoint_before.json": "058c5c2920cce1e65b06bf31c1a5ab6676f1480cd7382b56baf7128b59e36fe9",
+    "claims.csv": "ad72359b5bf0950b7cc0fc2e698e49486b7fc02d2144985856612044e87eadac",
+    "ingestion.json": "5512dd793b0bde3bd51f28b20b440108f3c9bab31233819bea5f32ce19482153",
+    "membership.csv": "b65c0e1912559d3cf38db51f571e84b4db54f4a4c5db22fab51f6c212fbbe7cc",
+    "ranking.csv": "4f4888309c92a618ea99847a25a066b08db9c45183c1c5fb228b83cc13b0d709",
+    "records.jsonl.gz": "d09718531e7866909897e63d0dffc0ad62a5e0c3b2742636e1169c0c5ec90049",
+    "run.json": "8d8f6613b3e3ae8030af2ca83c0df83d895c7982b5fca09b9bec2816b13107e9",
+    "unsettled_attempts.jsonl": "a50b3ffa0e2e0a9c1caacc4683a64b2028bab5e9cee2158b78a41815981ceb61"
+  },
+  "issue_counts": {
+    "missing_model_roles": 1,
+    "unfinished_classification": 1
+  },
+  "limits": [
+    "Artifacts do not prove actual model execution, authorship, cost, or independent verification.",
+    "Exact quote membership does not prove that the quote supports the label.",
+    "Claims export checks numbers; a person must check that all memo claims are represented.",
+    "Benchmark agreement is diagnostic; final 4/3/3 grades require rubric review."
+  ],
+  "quality": {
+    "official": false,
+    "status": "not_supplied"
+  },
+  "reference_sha256": "bb31d47db9b9a85cd97b3ba6e880915aff41a6127c3accee719c139ab34b7e97",
+  "reported_calls": 1587,
+  "reported_input_tokens": 2690270,
+  "reported_output_tokens": 2263659,
+  "status": "review_required",
+  "working_coverage_point_candidate": 0.4908
+}

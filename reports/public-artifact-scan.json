@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "archive": "spotify-public-evidence.zip",
+  "bytes": 80919923,
+  "sha256": "fc73a6503cba1ccb8a08516e5577484f99accf8da5879faf48a40a741a474356",
+  "files": 46,
+  "human_answer_files_excluded": true,
+  "credentials_and_databases_excluded": true,
+  "contains_processed_source_text": true,
+  "scope": "explicit 100000-review partial analysis plus full-source accounting"
+}

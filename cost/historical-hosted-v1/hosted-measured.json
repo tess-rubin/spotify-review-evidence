@@ -1,0 +1,110 @@
+{
+  "label_config": "99da3f1183680553fc28e84a69472a4cd97a2a53b2bcafc9fac59cfd8690e00c",
+  "review_count": 100,
+  "input_sha256": "c884ac3b9be5066995d5063f96ad9af6e5e082975788c1684c4f6b6ea661dd0e",
+  "cold_pipeline_seconds": 22.814088250044733,
+  "calls": [
+    {
+      "request_id": "cc57dfb6-7ff6-4732-889a-93061cea503f",
+      "role": "enrich",
+      "input_tokens": 1622,
+      "output_tokens": 1440,
+      "duration_seconds": 12.43254004092887,
+      "api_cost_usd": 0.000883,
+      "cached_input_tokens": 0,
+      "usage": {
+        "prompt_tokens": 1622,
+        "completion_tokens": 1440,
+        "total_tokens": 3062,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 1619,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    },
+    {
+      "request_id": "f86ee2f2-5f38-431e-a42c-e05b5b68a7b8",
+      "role": "enrich",
+      "input_tokens": 1703,
+      "output_tokens": 1432,
+      "duration_seconds": 10.350741833914071,
+      "api_cost_usd": 0.000887,
+      "cached_input_tokens": 0,
+      "usage": {
+        "prompt_tokens": 1703,
+        "completion_tokens": 1432,
+        "total_tokens": 3135,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 1700,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    },
+    {
+      "request_id": "cccb2faa-92ea-4fe0-af29-f3dde5b41b4e",
+      "role": "verify",
+      "input_tokens": 713,
+      "output_tokens": 295,
+      "duration_seconds": 3.4851835838053375,
+      "api_cost_usd": 0.000219,
+      "cached_input_tokens": 0,
+      "usage": {
+        "prompt_tokens": 713,
+        "completion_tokens": 295,
+        "total_tokens": 1008,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    },
+    {
+      "request_id": "bb21f668-37b9-478e-b37a-48b14cc3ad29",
+      "role": "memo",
+      "input_tokens": 1209,
+      "output_tokens": 745,
+      "duration_seconds": 7.360311749856919,
+      "api_cost_usd": 0.000494,
+      "cached_input_tokens": 0,
+      "usage": {
+        "prompt_tokens": 1209,
+        "completion_tokens": 745,
+        "total_tokens": 1954,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 1206,
+          "audio_tokens": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "accepted_prediction_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      }
+    }
+  ],
+  "measured_pilot_api_usd": 0.002483,
+  "usage_status": "provider reported; cash computed from dated published rates"
+}

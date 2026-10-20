@@ -1,0 +1,26 @@
+{
+  "review_id": "1b326d48-c751-4e4a-9d06-efcfbdce5cfe",
+  "source_sha256": "f204323518a9bd2de35c62e2734afd7c08493b61df212ae0d3a7e0e2c81eda5e",
+  "quote": "It works, not for every country though.",
+  "classification": {
+    "topic": "other",
+    "intent": "complaint",
+    "sentiment": -0.3,
+    "severity": 3,
+    "entities": [],
+    "evidence_quote": "It works, not for every country though.",
+    "needs_review": true
+  },
+  "blind_verification": {
+    "topic": "other",
+    "intent": "complaint",
+    "sentiment": -0.4,
+    "severity": 3,
+    "entities": [],
+    "evidence_quote": "It works, not for every country though.",
+    "needs_review": false
+  },
+  "issue_id": "issue-other",
+  "enrichment_request_id": "1c9895ab-43fb-4787-9605-6c1e5a3eef2a",
+  "claim_id": "issue-other-severity_sum"
+}

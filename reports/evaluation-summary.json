@@ -1,0 +1,309 @@
+{
+  "name": "hosted-luna",
+  "status": "scored",
+  "total": 50,
+  "completed_predictions": 50,
+  "missing_predictions": 0,
+  "invalid_predictions": 0,
+  "accuracy": {
+    "topic": 0.74,
+    "intent": 0.8,
+    "severity": 0.66
+  },
+  "macro_f1": {
+    "topic": 0.3940630447983389,
+    "intent": 0.48236249538575116
+  },
+  "topic": {
+    "accuracy": 0.74,
+    "macro_f1": 0.3940630447983389,
+    "macro_f1_supported_labels": 0.6305008716773423,
+    "macro_definition": "all contract labels, including labels absent from this sample; absent undefined F1 is 0",
+    "per_label": {
+      "access": {
+        "support": 0,
+        "precision": 0,
+        "recall": 0,
+        "f1": 0,
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "usability": {
+        "support": 9,
+        "precision": 0.625,
+        "recall": 0.5555555555555556,
+        "f1": 0.5882352941176471,
+        "true_positive": 5,
+        "false_positive": 3,
+        "false_negative": 4
+      },
+      "playback": {
+        "support": 6,
+        "precision": 0.6666666666666666,
+        "recall": 0.6666666666666666,
+        "f1": 0.6666666666666666,
+        "true_positive": 4,
+        "false_positive": 2,
+        "false_negative": 2
+      },
+      "downloads": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0,
+        "true_positive": 0,
+        "false_positive": 1,
+        "false_negative": 0
+      },
+      "catalog": {
+        "support": 6,
+        "precision": 0.8,
+        "recall": 0.6666666666666666,
+        "f1": 0.7272727272727273,
+        "true_positive": 4,
+        "false_positive": 1,
+        "false_negative": 2
+      },
+      "billing": {
+        "support": 5,
+        "precision": 0.5,
+        "recall": 0.2,
+        "f1": 0.2857142857142857,
+        "true_positive": 1,
+        "false_positive": 1,
+        "false_negative": 4
+      },
+      "support": {
+        "support": 0,
+        "precision": 0,
+        "recall": 0,
+        "f1": 0,
+        "true_positive": 0,
+        "false_positive": 0,
+        "false_negative": 0
+      },
+      "other": {
+        "support": 24,
+        "precision": 0.8214285714285714,
+        "recall": 0.9583333333333334,
+        "f1": 0.8846153846153846,
+        "true_positive": 23,
+        "false_positive": 5,
+        "false_negative": 1
+      }
+    },
+    "confusion": {
+      "access": {
+        "access": 0,
+        "usability": 0,
+        "playback": 0,
+        "downloads": 0,
+        "catalog": 0,
+        "billing": 0,
+        "support": 0,
+        "other": 0,
+        "__missing__": 0
+      },
+      "usability": {
+        "access": 0,
+        "usability": 5,
+        "playback": 2,
+        "downloads": 0,
+        "catalog": 0,
+        "billing": 0,
+        "support": 0,
+        "other": 2,
+        "__missing__": 0
+      },
+      "playback": {
+        "access": 0,
+        "usability": 1,
+        "playback": 4,
+        "downloads": 0,
+        "catalog": 1,
+        "billing": 0,
+        "support": 0,
+        "other": 0,
+        "__missing__": 0
+      },
+      "downloads": {
+        "access": 0,
+        "usability": 0,
+        "playback": 0,
+        "downloads": 0,
+        "catalog": 0,
+        "billing": 0,
+        "support": 0,
+        "other": 0,
+        "__missing__": 0
+      },
+      "catalog": {
+        "access": 0,
+        "usability": 0,
+        "playback": 0,
+        "downloads": 0,
+        "catalog": 4,
+        "billing": 0,
+        "support": 0,
+        "other": 2,
+        "__missing__": 0
+      },
+      "billing": {
+        "access": 0,
+        "usability": 2,
+        "playback": 0,
+        "downloads": 1,
+        "catalog": 0,
+        "billing": 1,
+        "support": 0,
+        "other": 1,
+        "__missing__": 0
+      },
+      "support": {
+        "access": 0,
+        "usability": 0,
+        "playback": 0,
+        "downloads": 0,
+        "catalog": 0,
+        "billing": 0,
+        "support": 0,
+        "other": 0,
+        "__missing__": 0
+      },
+      "other": {
+        "access": 0,
+        "usability": 0,
+        "playback": 0,
+        "downloads": 0,
+        "catalog": 0,
+        "billing": 1,
+        "support": 0,
+        "other": 23,
+        "__missing__": 0
+      }
+    }
+  },
+  "intent": {
+    "accuracy": 0.8,
+    "macro_f1": 0.48236249538575116,
+    "macro_f1_supported_labels": 0.602953119232189,
+    "macro_definition": "all contract labels, including labels absent from this sample; absent undefined F1 is 0",
+    "per_label": {
+      "complaint": {
+        "support": 23,
+        "precision": 0.9,
+        "recall": 0.782608695652174,
+        "f1": 0.8372093023255814,
+        "true_positive": 18,
+        "false_positive": 2,
+        "false_negative": 5
+      },
+      "request": {
+        "support": 1,
+        "precision": 0.25,
+        "recall": 1.0,
+        "f1": 0.4,
+        "true_positive": 1,
+        "false_positive": 3,
+        "false_negative": 0
+      },
+      "praise": {
+        "support": 22,
+        "precision": 1.0,
+        "recall": 0.9090909090909091,
+        "f1": 0.9523809523809523,
+        "true_positive": 20,
+        "false_positive": 0,
+        "false_negative": 2
+      },
+      "cancellation": {
+        "support": 0,
+        "precision": 0.0,
+        "recall": 0,
+        "f1": 0.0,
+        "true_positive": 0,
+        "false_positive": 1,
+        "false_negative": 0
+      },
+      "unclear": {
+        "support": 4,
+        "precision": 0.2,
+        "recall": 0.25,
+        "f1": 0.2222222222222222,
+        "true_positive": 1,
+        "false_positive": 4,
+        "false_negative": 3
+      }
+    },
+    "confusion": {
+      "complaint": {
+        "complaint": 18,
+        "request": 2,
+        "praise": 0,
+        "cancellation": 1,
+        "unclear": 2,
+        "__missing__": 0
+      },
+      "request": {
+        "complaint": 0,
+        "request": 1,
+        "praise": 0,
+        "cancellation": 0,
+        "unclear": 0,
+        "__missing__": 0
+      },
+      "praise": {
+        "complaint": 0,
+        "request": 0,
+        "praise": 20,
+        "cancellation": 0,
+        "unclear": 2,
+        "__missing__": 0
+      },
+      "cancellation": {
+        "complaint": 0,
+        "request": 0,
+        "praise": 0,
+        "cancellation": 0,
+        "unclear": 0,
+        "__missing__": 0
+      },
+      "unclear": {
+        "complaint": 2,
+        "request": 1,
+        "praise": 0,
+        "cancellation": 0,
+        "unclear": 1,
+        "__missing__": 0
+      }
+    }
+  },
+  "severity_mae_completed": 0.38,
+  "all_three_correct": 22,
+  "needs_review_count": 8,
+  "error_counts": {
+    "severity": 17,
+    "topic": 13,
+    "intent": 10
+  },
+  "limitations": [
+    "Only 50 human-labeled reviews; small per-class supports.",
+    "Inspection of errors is diagnostic only; frozen candidate was defined before viewing golden results.",
+    "Improved scores do not authorize tuning on these human answers or demonstrate full-corpus accuracy."
+  ],
+  "golden_informed_trial_rejected": {
+    "topic": 0.8,
+    "intent": 0.82,
+    "severity": 0.76,
+    "all_three": 28,
+    "independent": false,
+    "production_adopted": false
+  },
+  "fresh_synthetic_functional_check": {
+    "count": 24,
+    "all_three_correct": 23,
+    "real_human_accuracy": false
+  },
+  "fresh_real_blind_holdout": "50 reserved, human labels pending"
+}

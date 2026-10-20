@@ -1,0 +1,12 @@
+{
+  "anonymous_http_status": 200,
+  "live_url": "https://spotify-review-evidence.tess-rubin.chatgpt.site/",
+  "scope": "partial",
+  "source_rows": 660622,
+  "hosted_classifications": 100000,
+  "hosted_evidence_sample": 400,
+  "ranking_fields_match_database": true,
+  "all_recommendation_citations_match_source": true,
+  "ranked_issues": 8,
+  "recommendations": 8
+}

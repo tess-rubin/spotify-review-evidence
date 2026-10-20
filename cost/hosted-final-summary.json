@@ -1,0 +1,29 @@
+{
+  "scope": "partial",
+  "full_source_rows": 660622,
+  "nonempty_rows": 660609,
+  "completed_rows": 100000,
+  "unclassified_nonempty": 560609,
+  "empty_quarantines": 13,
+  "direct_classifications": 78992,
+  "cache_aliases": 21008,
+  "api_budget": {
+    "spent_usd": 1.407993,
+    "reserved_or_unknown_usd": 0.006007,
+    "hard_cap_usd": 4.9
+  },
+  "classification_wall_span_including_pause_seconds": 18463.696140527725,
+  "classification_http_seconds": 17747.548142148647,
+  "pilot_cold_enrichment_seconds": 22.814088250044733,
+  "pilot_warm_enrichment_seconds": 0.0043290420435369015,
+  "known_usage_calls_in_partial_db": 1587,
+  "all_attempts_in_partial_db": 1589,
+  "unknown_attempts": 2,
+  "original_golden_accuracy": {
+    "topic": 0.74,
+    "intent": 0.8,
+    "severity": 0.66
+  },
+  "original_golden_all_three": 22,
+  "production_golden_tuned": false
+}

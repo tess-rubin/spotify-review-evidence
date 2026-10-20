@@ -1,0 +1,6 @@
+{
+  "target_count": 100000,
+  "target_mean_text_bytes": 74.66303,
+  "pilot_mean_text_bytes": 82.36,
+  "golden_answer_values_read": false
+}

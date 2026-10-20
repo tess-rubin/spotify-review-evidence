@@ -1,0 +1,9 @@
+{
+  "offline": true,
+  "requires_working_database": false,
+  "saved_call_source": "cost/checkpoint500_calls.jsonl",
+  "projected_volume_changes_preserve_measurements": true,
+  "doubling_rates_preserves_zero_billed_measurements": true,
+  "nonzero_rate_scaling_test": "tests/test_controls.py::test_rate_scaling_nonzero_synthetic_ledger",
+  "all_stage_projections_available": true
+}

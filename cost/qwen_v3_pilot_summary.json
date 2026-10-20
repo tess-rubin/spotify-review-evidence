@@ -1,0 +1,27 @@
+{
+  "profile": "qwen-v3",
+  "label_config": "587308aec7834a5467180840dfec4da707eeabcf654c7cac2f1b5cd3d25516a2",
+  "input_count": 100,
+  "completed": 100,
+  "cold_seconds": 142.26231779088266,
+  "warm_seconds": 0.0019426250364631414,
+  "cold_calls": {
+    "enrich": 100,
+    "verify": 10,
+    "group": 7,
+    "memo": 7
+  },
+  "warm_calls": {
+    "enrich": 0,
+    "verify": 0,
+    "group": 0,
+    "memo": 0
+  },
+  "severity_policy_adjustments": 3,
+  "remaining_complaint_severity_one": 0,
+  "development_ids_disjoint_from_golden": true,
+  "profile_frozen_before_human_scoring": true,
+  "human_answers_in_inputs": false,
+  "additional_cash_usd": 0,
+  "scope": "Same 100-review development input; not a scale-up"
+}

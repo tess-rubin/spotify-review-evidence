@@ -1,0 +1,13 @@
+{
+  "updated_date": "2026-10-18",
+  "currency": "USD",
+  "additional_out_of_pocket_limit_exclusive": 5,
+  "execution_cap": 4.9,
+  "excluded_by_user": ["existing computer", "ordinary electricity use", "existing subscriptions"],
+  "included": ["new API charges", "new paid services", "new hosting charges", "new purchases"],
+  "local_model_execution": "permitted; ordinary local hardware and electricity excluded by user",
+  "new_paid_provider_enabled": false,
+  "budget_clarification_required": false,
+  "quality_gates_remain_required": true,
+  "source": "User clarified that $5 means real additional money and excludes existing computer, ordinary electricity use, and existing subscriptions."
+}

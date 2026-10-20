@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "issue_metric_cells_checked": 32,
+  "all_claim_values_match": true,
+  "all_eight_recommendation_ids_quotes_memberships_match": true,
+  "source": "grading/claims.csv and data/hosted/partial.sqlite",
+  "memo_scope": "partial, 100000 classifications"
+}

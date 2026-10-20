@@ -1,0 +1,28 @@
+{
+  "model": "qwen3:4b-instruct",
+  "label_config": "bf89e59aae512d206fb93aef437e64ae8f25fc01d45400c803986be9583be3de",
+  "input_sha256": "c884ac3b9be5066995d5063f96ad9af6e5e082975788c1684c4f6b6ea661dd0e",
+  "completed": 100,
+  "cold_wall_seconds": 153.19636041717604,
+  "warm_wall_seconds": 0.0050373750273138285,
+  "cold_calls_by_role": {
+    "enrich": 100,
+    "verify": 10,
+    "group": 7,
+    "memo": 7
+  },
+  "warm_calls_by_role": {
+    "enrich": 0,
+    "verify": 0,
+    "group": 0,
+    "memo": 0
+  },
+  "verification_disagreements": 2,
+  "verification_sample_size": 10,
+  "known_rubric_inconsistency_count": 3,
+  "new_cash_charges_usd": 0,
+  "golden_accuracy": "pending",
+  "production_replaced": false,
+  "source_evidence_root": "experiments/qwen3-4b-v2",
+  "limitations": "Experimental configuration; synthetic development examples informed prompt. Different prompts/settings from Gemma prevent attributing runtime differences solely to model size. Original production results preserved."
+}
