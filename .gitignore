@@ -1,0 +1,80 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*
+secrets*
+.aws/
+.codex/
+.agents/
+
+# All review datasets and human answers stay local
+*.csv
+*.tsv
+evaluation/human/
+evaluation/results/
+evaluation/predictions/
+evaluation/frozen/
+evaluation/*console*
+evaluation/*report*
+evaluation/*summary*
+evaluation/*validation*
+evaluation/ERROR_ANALYSIS.md
+evaluation/REPORT.md
+evaluation/prediction-input*
+
+# Raw requests/responses, review text, exports and private artifacts
+.env.local
+data/
+experiments/
+evidence/
+grading/
+cost/pilot-export/
+cost/*calls*
+cost/*records*
+cost/*console*
+cost/usage*
+cost/replay.json
+cost/faster_benchmark.json
+dashboard/snapshot*
+dashboard/data/
+local-reference.json
+*.jsonl
+*.jsonl.gz
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.db
+*.db-*
+*.db3
+*.log
+*.cast
+*.zip
+*.tar.gz
+*.docx
+
+# Dependencies, caches and build outputs
+__pycache__/
+*.pyc
+node_modules/
+dist/
+dashboard/.git/
+.DS_Store
+
+# Public repository excludes private generated dashboard seed and evaluation artifacts
+dashboard/worker/index.js
+dashboard/site-*.tar.gz
+evaluation/*.json
+self-check.json
+
+# Private Sites checkout is separate; sanitized template lives in web/
+dashboard/
+
+# Evaluation data is private by default; publish only code and workflow documentation.
+evaluation/*
+!evaluation/*.py
+!evaluation/README.md
