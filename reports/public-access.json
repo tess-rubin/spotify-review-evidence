@@ -2,11 +2,17 @@
   "status": "passed",
   "public_dashboard_anonymous_http": 200,
   "public_artifact_anonymous_http": 200,
-  "artifact_bytes": 80920339,
-  "artifact_sha256": "788d19cf946416cd5ab57fff809783ba2be12e537b708d3716e72628ff559652",
+  "artifact_bytes": 80935614,
+  "artifact_sha256": "c48ffffa496bc51034f16687f7b929d557a50ba02f9f06f2d2ae2ec49a07c52b",
   "github_asset_digest_matches": true,
   "dashboard_classifications": 100000,
   "site": "https://spotify-review-evidence.tess-rubin.chatgpt.site/",
   "repository": "https://github.com/tess-rubin/spotify-review-evidence",
-  "release": "https://github.com/tess-rubin/spotify-review-evidence/releases/tag/final-partial"
+  "release": "https://github.com/tess-rubin/spotify-review-evidence/releases/tag/final-partial",
+  "verified_date": "2026-10-20",
+  "dashboard_private_window_verified": true,
+  "final_source_commit": "0230334",
+  "final_clean_clone_offline_calculator_passed": true,
+  "final_clean_clone_control_tests_passed": 10,
+  "private_window_release_visible_signed_out": true
 }
