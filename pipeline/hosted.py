@@ -103,6 +103,9 @@ def request(d,rows,run_id,phase='initial',role='enrich',extra=None,artifact_key=
    schema={'type':'object','properties':{'recommendations':{'type':'array','items':{'type':'object','properties':{'issue_id':{'type':'string','enum':[p['issue_id'] for p in extra['issues']]},'evidence_ref':{'type':'string','enum':['e0','e1']},'action':{'type':'string'}},'required':['issue_id','evidence_ref','action'],'additionalProperties':False}}},'required':['recommendations'],'additionalProperties':False};maxout=2000
    data={'issues':[{**{k:v for k,v in p.items() if k!='evidence'},'evidence':[{'evidence_ref':'e'+str(i),'quote':e['quote']} for i,e in enumerate(p['evidence'])]} for p in extra['issues']]}
 
+  if role=='group':
+   prompt='Suggest a short neutral title for each supplied stable Spotify issue using only its saved examples. Do not change issue IDs, memberships, counts or scores. Return titles with issue_id and title for every supplied issue exactly once. No numerical claims or invented root causes.'
+   schema={'type':'object','properties':{'titles':{'type':'array','items':{'type':'object','properties':{'issue_id':{'type':'string','enum':[p['issue_id'] for p in extra['issues']]},'title':{'type':'string'}},'required':['issue_id','title'],'additionalProperties':False}}},'required':['titles'],'additionalProperties':False};maxout=512
   body={'model':CONFIG['model'],'reasoning_effort':'none','service_tier':'default','store':False,'messages':[{'role':'system','content':prompt},{'role':'user','content':json.dumps(data,ensure_ascii=False,separators=(',',':'))}],'max_completion_tokens':maxout,'response_format':{'type':'json_schema','json_schema':{'name':'spotify_labels' if role!='memo' else 'spotify_memo','strict':True,'schema':schema}}}
   encoded=json.dumps(body,ensure_ascii=False,separators=(',',':')).encode();bound=len(encoded)+4096
   if bound>200000:raise ValueError('Request too large for conservative short-context reservation')
@@ -120,7 +123,7 @@ def request(d,rows,run_id,phase='initial',role='enrich',extra=None,artifact_key=
    log['raw_provider_response']=raw;usage=raw.get('usage');log['api_cost_usd']=settle(rid,usage)
    if usage is None:raise RuntimeError('USAGE_MISSING: reservation retained; stop')
    log.update(input_tokens=usage['prompt_tokens'],output_tokens=usage['completion_tokens'],usage_status='provider_reported')
-   answer=json.loads(raw['choices'][0]['message']['content']);result=validate(answer,rows) if role!='memo' else normalize_memo(answer,extra)
+   answer=json.loads(raw['choices'][0]['message']['content']);result=normalize_memo(answer,extra) if role=='memo' else validate_group(answer,extra) if role=='group' else validate(answer,rows)
    log.update(outcome='succeeded',validated_result=result)
   except urllib.error.HTTPError as e:
    # Do not save provider error bodies: some authentication errors echo key fragments.
@@ -143,6 +146,16 @@ def request(d,rows,run_id,phase='initial',role='enrich',extra=None,artifact_key=
   if log['outcome']=='succeeded':return result
   if fatal:raise RuntimeError(fatal)
   if retry:time.sleep(min(30,2**transient))
+def validate_group(answer,extra):
+ if not isinstance(answer,dict) or set(answer)!={'titles'} or not isinstance(answer['titles'],list):raise ValueError('Invalid issue titles')
+ wanted={p['issue_id'] for p in extra['issues']};seen=set()
+ for row in answer['titles']:
+  if not isinstance(row,dict) or set(row)!={'issue_id','title'} or row['issue_id'] not in wanted or row['issue_id'] in seen:raise ValueError('Invalid issue ID')
+  seen.add(row['issue_id'])
+  if not valid_action(row['title'],'') or len(row['title'])>100:raise ValueError('Invalid issue title')
+ if seen!=wanted:raise ValueError('Missing issue title')
+ return answer
+
 def normalize_memo(answer,extra):
  if not isinstance(answer,dict) or set(answer)!={'recommendations'} or not isinstance(answer['recommendations'],list):raise ValueError('Invalid memo envelope')
  packs={p['issue_id']:p for p in extra['issues']};out=[];seen=set()

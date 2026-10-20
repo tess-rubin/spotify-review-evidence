@@ -15,5 +15,10 @@
   "public_url": "https://spotify-review-evidence.tess-rubin.chatgpt.site/",
   "public_dashboard_evidence_sample": 400,
   "classification_wall_span_including_pauses_seconds": 18463.696140527725,
-  "checker_status": "review_required"
+  "checker_status": "review_required",
+  "api_budget": {
+    "spent_usd": 1.408096,
+    "reserved_or_unknown_usd": 0.006007,
+    "hard_cap_usd": 4.9
+  }
 }

@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[1]
 def build():
  files=[]
  for base in ('grading','reports'):
-  files.extend(p for p in (ROOT/base).rglob('*') if p.is_file())
+  files.extend(p for p in (ROOT/base).rglob('*') if p.is_file() and p.name!='public-artifact-scan.json')
  for name in ('records.jsonl.gz','run.json','ingestion.json'):
   p=ROOT/'evidence/hosted/full-accounting'/name
   if p.exists():files.append(p)
