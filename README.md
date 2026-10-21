@@ -24,11 +24,11 @@ The [assignment rubric](https://docs.google.com/document/d/1PUFw56OGxqbUxiFm0vKt
 
 | Criterion | Evidence and practical limits |
 |---|---|
-| D1: accessible code, setup and artifacts | Commands below; `.env.example`; public dashboard; `final-partial` release. Owner-authorized human expected labels, original predictions and per-review comparisons are public in `evals/`; credentials and working databases remain excluded. |
+| D1: accessible code, setup and artifacts | Commands below; `.env.example`; public dashboard; `final-partial` release. Golden-50 expected labels, original model predictions and per-review comparisons are **public under [evals/](evals/README.md)** and included in the current evidence ZIP; never model inputs. Credentials and working databases remain excluded. |
 | D2: architecture, schema and provenance | Diagram below; [labels](LABELS.md); [hosted adapter](pipeline/hosted.py); [frozen configuration](pipeline/configs/hosted-luna.json); exact source row hashes and direct cache links in `grading/records.jsonl.gz`. |
 | D3: memo numbers, calculations and source evidence | [Memo](MEMO.md); `grading/claims.csv`, `ranking.csv`, `membership.csv`; [source-to-claim trace](reports/review-trace.json). |
 | D4: coherent recommendation, alternatives and limitations | Memo prioritizes playback and compares usability and billing; deterministic partial cohort and diagnostic accuracy limitations are explicit. |
-| T1: 50 human labels, comparisons, failure analysis | [Original expected labels](evals/expected.json), [frozen model predictions](evals/predictions.json), [per-review comparisons](evals/comparisons.json) and [original evaluation report](evals/report.json) are public evaluation evidence, never model inputs. Original agreement: 74% topic, 80% intent, 66% severity; MAE 0.38; 22/50 exact triples. |
+| T1: 50 human labels, comparisons, failure analysis | [Original expected labels](evals/expected.json), [frozen model predictions](evals/predictions.json), [per-review comparisons](evals/comparisons.json) and [original evaluation report](evals/report.json) are **public under [evals/](evals/README.md)**, never model inputs. Original agreement: 74% topic, 80% intent, 66% severity; MAE 0.38; 22/50 exact triples. |
 | T2: blind verifier, planted errors and injection | Saved independent ten-review blind verification in release; [actual hosted security check](reports/security-check.json): three injection cases passed and three planted fields detected against saved blind predictions. Same-model verification is a consistency check, not ground truth. |
 | T3: actual cold/warm pilot, calculator, recovery/spend controls | [Cost evidence](cost/README.md), [portable real usage](cost/hosted-measured.json), [dated rates](cost/hosted-rates.json), [calculator](cost/hosted_calculator.py); actual SIGINT recording/checkpoints in release; [offline tests](reports/tests.txt). |
 | W1: ingestion, coverage and classification | Full-file `grading/ingestion.json`; 100,000 completed records with no missing/duplicate/invalid IDs within the declared cohort; full 660,622-row accounting separately in release. |
@@ -106,7 +106,7 @@ python3 evals/check_saved.py
 python3 -m unittest discover -s tests -p test_hosted.py
 ```
 
-Recorded pilot data remain unchanged when volume changes; doubling API rates doubles the API subtotal without altering recorded tokens/time. Alternate replay writes `cost/hosted-replay.json`. Full workspace tests require the private evaluation/development fixtures; the saved results are linked above.
+Recorded pilot data remain unchanged when volume changes; doubling API rates doubles the API subtotal without altering recorded tokens/time. Alternate replay writes `cost/hosted-replay.json`. The golden-50 evaluation files and their offline consistency check are public in `evals/`. Some historical development tests require separate local fixtures; saved full-workspace results are linked above.
 
 Profile any six-column source CSV without paying, or explicitly execute all stages:
 
@@ -146,6 +146,6 @@ The separate full-source accounting export retains all 660,622 IDs and the 13 em
 
 The dashboard, repository and public release require no grader invitation. The golden-50 human expected labels, original frozen predictions and per-review comparisons are now public in [evals/](evals/README.md), at the owner's explicit request. These files are saved evaluation evidence only: never model inputs, prompt examples, routing or tuning data. The hosted CSV entrypoint rejects files under `evals/`. Publication does not change the original scores or make this inspected sample a fresh holdout.
 
-Credentials, raw source CSVs and working databases remain excluded. The local `spotify-private-evaluation.zip` remains an optional convenience package; its human evaluation content is now also inspectable in the public repository. No separate private handoff is needed to inspect the expected labels and per-review comparisons. Earlier release ZIPs predate this publication; use `evals/` on the main branch for the current evaluation evidence.
+Credentials, raw source CSVs and working databases remain excluded. Golden-50 expected labels, original model predictions and per-review comparisons are public under `evals/` in both the repository and current evidence ZIP. No private handoff is required for these files. The local evaluation ZIP is only an optional duplicate package.
 
 Verified signed-out checks: [public URLs and artifact digest](reports/public-access.json); [clean clone and offline replay](reports/clean-clone-check.json). Submit or resubmit the repository URL through bCourses; no new submission has been made for this update.

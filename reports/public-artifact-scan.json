@@ -1,10 +1,10 @@
 {
   "status": "passed",
   "archive": "spotify-public-evidence.zip",
-  "bytes": 80942693,
-  "sha256": "67da1967b26d6b94125bd652d292ff5c1616951349e4abaae951fdab16722f30",
-  "files": 55,
-  "human_answer_files_excluded": true,
+  "bytes": 80962585,
+  "sha256": "c7fc51e1e056e9a190839dc6b9d1e89bcefcb361da0c416f633621426e241936",
+  "files": 62,
+  "golden50_expected_labels_predictions_comparisons_public_under_evals": true,
   "credentials_and_databases_excluded": true,
   "contains_processed_source_text": true,
   "scope": "explicit 100000-review partial analysis plus full-source accounting"

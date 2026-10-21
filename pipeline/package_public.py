@@ -4,7 +4,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def build():
  files=[]
- for base in ('grading','reports'):
+ for base in ('grading','reports','evals'):
   files.extend(p for p in (ROOT/base).rglob('*') if p.is_file() and p.name not in ('public-artifact-scan.json','public-access.json'))
  for name in ('records.jsonl.gz','run.json','ingestion.json'):
   p=ROOT/'evidence/hosted/full-accounting'/name
@@ -28,6 +28,6 @@ def build():
  path=ROOT/'spotify-public-evidence.zip'
  with zipfile.ZipFile(path,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
   for p in sorted(set(files)):z.write(p,p.relative_to(ROOT))
- report={'status':'passed','archive':path.name,'bytes':path.stat().st_size,'sha256':hashlib.file_digest(path.open('rb'),'sha256').hexdigest(),'files':len(set(files)),'human_answer_files_excluded':True,'credentials_and_databases_excluded':True,'contains_processed_source_text':True,'scope':'explicit 100000-review partial analysis plus full-source accounting'}
+ report={'status':'passed','archive':path.name,'bytes':path.stat().st_size,'sha256':hashlib.file_digest(path.open('rb'),'sha256').hexdigest(),'files':len(set(files)),'golden50_expected_labels_predictions_comparisons_public_under_evals':True,'credentials_and_databases_excluded':True,'contains_processed_source_text':True,'scope':'explicit 100000-review partial analysis plus full-source accounting'}
  (ROOT/'reports/public-artifact-scan.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report));return report
 if __name__=='__main__':build()
