@@ -19,6 +19,6 @@ def check(paths):
   data=p.read_bytes()
   if forbidden or any(secret in data for secret in secrets) or re.search(rb'sk-(?:proj-)?[A-Za-z0-9_-]{30,}',data):bad.append(rel)
  if bad:raise RuntimeError('Public-file inspection blocked these paths: '+', '.join(bad))
- return {'status':'passed','inspected_files':total,'secret_values_displayed':False,'raw_datasets_human_answers_private_artifacts_excluded':True}
+ return {'status':'passed','inspected_files':total,'secret_values_displayed':False,'raw_datasets_credentials_and_working_databases_excluded':True,'golden_evaluation_publication_explicitly_authorized':True}
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('--staged',action='store_true');a=p.parse_args();paths=[ROOT/n for n in subprocess.check_output(['git','diff','--cached','--name-only','-z'],cwd=ROOT).decode().split('\0') if n] if a.staged else candidates();print(json.dumps(check(paths)))

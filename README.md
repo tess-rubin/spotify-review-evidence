@@ -24,11 +24,11 @@ The [assignment rubric](https://docs.google.com/document/d/1PUFw56OGxqbUxiFm0vKt
 
 | Criterion | Evidence and practical limits |
 |---|---|
-| D1: accessible code, setup and artifacts | Commands below; `.env.example`; public dashboard; `final-partial` release. Private human answers and comparisons are packaged separately and excluded from GitHub. |
+| D1: accessible code, setup and artifacts | Commands below; `.env.example`; public dashboard; `final-partial` release. Owner-authorized human expected labels, original predictions and per-review comparisons are public in `evals/`; credentials and working databases remain excluded. |
 | D2: architecture, schema and provenance | Diagram below; [labels](LABELS.md); [hosted adapter](pipeline/hosted.py); [frozen configuration](pipeline/configs/hosted-luna.json); exact source row hashes and direct cache links in `grading/records.jsonl.gz`. |
 | D3: memo numbers, calculations and source evidence | [Memo](MEMO.md); `grading/claims.csv`, `ranking.csv`, `membership.csv`; [source-to-claim trace](reports/review-trace.json). |
 | D4: coherent recommendation, alternatives and limitations | Memo prioritizes playback and compares usability and billing; deterministic partial cohort and diagnostic accuracy limitations are explicit. |
-| T1: 50 human labels, comparisons, failure analysis | [Aggregate original evaluation/confusions](reports/evaluation-summary.json); original expected labels and per-review comparisons retained privately. Original agreement: 74% topic, 80% intent, 66% severity; MAE 0.38; 22/50 exact triples. |
+| T1: 50 human labels, comparisons, failure analysis | [Original expected labels](evals/expected.json), [frozen model predictions](evals/predictions.json), [per-review comparisons](evals/comparisons.json) and [original evaluation report](evals/report.json) are public evaluation evidence, never model inputs. Original agreement: 74% topic, 80% intent, 66% severity; MAE 0.38; 22/50 exact triples. |
 | T2: blind verifier, planted errors and injection | Saved independent ten-review blind verification in release; [actual hosted security check](reports/security-check.json): three injection cases passed and three planted fields detected against saved blind predictions. Same-model verification is a consistency check, not ground truth. |
 | T3: actual cold/warm pilot, calculator, recovery/spend controls | [Cost evidence](cost/README.md), [portable real usage](cost/hosted-measured.json), [dated rates](cost/hosted-rates.json), [calculator](cost/hosted_calculator.py); actual SIGINT recording/checkpoints in release; [offline tests](reports/tests.txt). |
 | W1: ingestion, coverage and classification | Full-file `grading/ingestion.json`; 100,000 completed records with no missing/duplicate/invalid IDs within the declared cohort; full 660,622-row accounting separately in release. |
@@ -69,7 +69,7 @@ The dashboard stores all final issue aggregates/recommendations, the coverage sn
 
 Run `python3 pipeline/ranking_sensitivity.py` after extracting the release; it reads saved records and original analysis texts, verifies baseline equality and writes only a separate report. No model, credentials or network is required. Deduplication uses exact strings and counts distinct texts, not people; flags are model decisions, not calibrated uncertainty.
 
-The memo specifies a bounded startup/playback investigation and **proposed**, unobserved measurements: playback-start failure rate and crash-free listening sessions, with fixed denominators, prospective baselines and rollout guardrails. Three existing disagreement mechanisms are discussed without publishing individual human labels, review IDs or model–human pairs. Detailed diagnostic cases are in the private ZIP. No prompt, classification or original evaluation score was changed.
+The memo specifies a bounded startup/playback investigation and **proposed**, unobserved measurements: playback-start failure rate and crash-free listening sessions, with fixed denominators, prospective baselines and rollout guardrails. Three existing disagreement mechanisms are discussed in the memo. At the owner’s subsequent explicit request, all original golden-50 expected labels and model–human pairs are now public under `evals/`; diagnostic cases also remain in the local package. No prompt, classification or original evaluation score was changed.
 
 ## Evaluation and inspected failures
 
@@ -95,13 +95,14 @@ The hosted 500/10,000 development gates were not separately executed in the dead
 
 ## Setup, offline replay and explicit paid commands
 
-Python 3.10+ standard library; Node 18+ for Worker syntax/build checks. No key or network is needed for saved-output ranking or cost replay. Raw CSVs, private human answers, databases, raw attempts and generated seeds are excluded from Git commits. Download/extract the release for saved grading evidence; obtain the original assignment source separately. See [source manifest](supplied/manifest.json) and [source instructions](supplied/README.md). Full original CSV SHA256: `1fc85de68a304dd8978b537cfa58793d5f41cbaf417fa32cb53899f83a2fcef6`.
+Python 3.10+ standard library; Node 18+ for Worker syntax/build checks. No key or network is needed for saved-output ranking or cost replay. Raw CSVs, databases, raw attempts and generated seeds are excluded from Git commits. The explicitly authorized JSON evaluation outputs in `evals/` are public and isolated from classifier inputs. Download/extract the release for saved grading evidence; obtain the original assignment source separately. See [source manifest](supplied/manifest.json) and [source instructions](supplied/README.md). Full original CSV SHA256: `1fc85de68a304dd8978b537cfa58793d5f41cbaf417fa32cb53899f83a2fcef6`.
 
 ```sh
 python3 cost/hosted_calculator.py
 python3 cost/hosted_calculator.py --volume 200000 --rate-multiplier 2
 python3 pipeline/rank_export.py --records grading/records.jsonl.gz --membership grading/membership.csv --out /tmp/ranking.csv
 python3 pipeline/ranking_sensitivity.py
+python3 evals/check_saved.py
 python3 -m unittest discover -s tests -p test_hosted.py
 ```
 
@@ -141,10 +142,10 @@ Current partial report: all 100,000 records valid; no missing/duplicate IDs, bad
 
 The separate full-source accounting export retains all 660,622 IDs and the 13 empty-text reasons. Its [full-scope report](reports/check_submission.full-accounting.json) honestly flags unfinished classification outside the declared partial cohort. The full-source coverage-point candidate is 0.4908 under the supplied formula; the cohort's 100% validation is not a claim of full-source classification. The amended assignment accepts at least 100,000 reviews, but an instructor determines the grade.
 
-## Public access and private evidence
+## Public access and evaluation evidence
 
-The dashboard is public and needs no grader invitation. GitHub source and the sanitized release are intended for signed-out inspection. Human golden answers and per-review human comparisons are intentionally excluded from public GitHub and its release; the separate local `spotify-private-evaluation.zip` contains those files for an approved private handoff. No email is needed for the public artifacts, and no private evidence has been sent. The final public repository URL is the course submission deliverable; the student must submit it through bCourses.
+The dashboard, repository and public release require no grader invitation. The golden-50 human expected labels, original frozen predictions and per-review comparisons are now public in [evals/](evals/README.md), at the owner's explicit request. These files are saved evaluation evidence only: never model inputs, prompt examples, routing or tuning data. The hosted CSV entrypoint rejects files under `evals/`. Publication does not change the original scores or make this inspected sample a fresh holdout.
 
-Verified signed-out checks: [public URLs and artifact digest](reports/public-access.json); [clean clone, offline replay and ranking reproduction](reports/clean-clone-check.json). No grader invitation is required for the public site or repository. Private human-answer evidence is a separate handoff.
+Credentials, raw source CSVs and working databases remain excluded. The local `spotify-private-evaluation.zip` remains an optional convenience package; its human evaluation content is now also inspectable in the public repository. No separate private handoff is needed to inspect the expected labels and per-review comparisons. Earlier release ZIPs predate this publication; use `evals/` on the main branch for the current evaluation evidence.
 
-Private evaluation delivery: attach `spotify-private-evaluation.zip` only to an instructor-approved private bCourses file submission if available. A public website/repository URL alone does not deliver private human evidence. If the course offers only URL submission, request the instructor’s approved private channel before sending. No email or transfer has been initiated. Rebuild locally with `python3 pipeline/package_private.py`.
+Verified signed-out checks: [public URLs and artifact digest](reports/public-access.json); [clean clone and offline replay](reports/clean-clone-check.json). Submit or resubmit the repository URL through bCourses; no new submission has been made for this update.

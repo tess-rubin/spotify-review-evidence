@@ -6,7 +6,9 @@ from pipeline import hosted as h
 from pipeline.hosted_finish import finish
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('input',type=Path);p.add_argument('--execute-paid',action='store_true');p.add_argument('--spend-cap',type=float);a=p.parse_args();rows=list(h.c.csv_rows(a.input));fields={'review_id','review_text','review_rating','review_likes','app_version','review_timestamp'}
+ p=argparse.ArgumentParser();p.add_argument('input',type=Path);p.add_argument('--execute-paid',action='store_true');p.add_argument('--spend-cap',type=float);a=p.parse_args()
+ if (h.ROOT/'evals').resolve() in a.input.resolve().parents:raise ValueError('evals/ contains evaluation answers/outputs and must never be used as model input')
+ rows=list(h.c.csv_rows(a.input));fields={'review_id','review_text','review_rating','review_likes','app_version','review_timestamp'}
  if not rows or any(set(r)!=fields for r in rows):raise ValueError('Provide exactly the six original source columns, without human answers or additional metadata')
  name='csv-'+h.c.sha(a.input)[:16];db=h.STATE/(name+'.sqlite');report={'mode':'offline_profile','rows':len(rows),'nonempty':sum(bool(r['review_text'].strip()) for r in rows),'input_sha256':h.c.sha(a.input),'label_config':h.LABEL_CONFIG,'database':str(db),'api_calls':0}
  if not a.execute_paid:print(json.dumps(report));return

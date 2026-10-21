@@ -4,12 +4,5 @@
   "all_claim_values_match": true,
   "all_eight_recommendation_ids_quotes_memberships_match": true,
   "source": "grading/claims.csv and data/hosted/partial.sqlite",
-  "memo_scope": "partial, 100000 classifications",
-  "sensitivity_input_hashes_verified": true,
-  "baseline_ranking_preserved": true,
-  "proposed_product_measurements_not_observed": true,
-  "private_disagreement_cases": 3,
-  "human_answers_not_published": true,
-  "paid_calls_during_polish": 0,
-  "partial_database_calls_unchanged": 1591
+  "memo_scope": "partial, 100000 classifications"
 }

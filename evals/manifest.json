@@ -1,0 +1,25 @@
+{
+  "purpose": "Public offline evaluation evidence, explicitly authorized by owner; never classifier input or tuning material",
+  "records": 50,
+  "classifier": "original frozen hosted-luna",
+  "label_config": "99da3f1183680553fc28e84a69472a4cd97a2a53b2bcafc9fac59cfd8690e00c",
+  "human_expected_fields": [
+    "topic",
+    "intent",
+    "severity"
+  ],
+  "unlabeled_human_fields": [
+    "sentiment",
+    "entities",
+    "evidence_quote",
+    "needs_review"
+  ],
+  "source_human_csv_sha256": "45b405ab3890baaeace910e264935dae0e034c5581c9ade8f6d0f826e9382157",
+  "publication_does_not_change_original_scores": true,
+  "files_sha256": {
+    "report.json": "a0c4de63bdaf43dcf90950bf59085bda7083bfbb440a503a5d3bd88201dd2886",
+    "expected.json": "c0e42a89d55ed425bad0735e2ad155873e7f49049f6b4d41e9dd1f177d72921c",
+    "comparisons.json": "d47146c530a2c2b25b0d1571423b41863b72ca4b4cffd907bf12a76c633b6dff",
+    "predictions.json": "525d6ddf1227b8d945b6fadec05c8977f63f8b5896e55b6a627eb060864feec6"
+  }
+}
