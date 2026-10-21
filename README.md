@@ -140,7 +140,7 @@ python3 supplied/check_submission.py check --reference data/hosted/partial-refer
 
 Current partial report: all 100,000 records valid; no missing/duplicate IDs, bad hashes, invalid cache provenance, membership/ranking or claim errors. The required model `group` role is now satisfied by the genuine issue-naming call. The declared 100,000-review partial-scope checker **passes with no flags**. Unknown usage is visibly preserved outside the checker's integer-only known-usage adapter.
 
-The separate full-source accounting export retains all 660,622 IDs and the 13 empty-text reasons. Its [full-scope report](reports/check_submission.full-accounting.json) honestly flags unfinished classification outside the declared partial cohort. The full-source coverage-point candidate is 0.4908 under the supplied formula; the cohort's 100% validation is not a claim of full-source classification. The amended assignment accepts at least 100,000 reviews, but an instructor determines the grade.
+The separate full-source accounting export retains all 660,622 IDs and the 13 empty-text reasons. Its [full-scope report](reports/check_submission.full-accounting.json) honestly flags unfinished classification outside the declared partial cohort. The full-source coverage-point candidate is approximately 0.3211 under the assignment formula (`0.2 + 0.2 × 100,013 / 660,622 + 0.6 × 100,000 / 660,609`); the cohort's 100% validation is not a claim of full-source classification. The amended assignment accepts at least 100,000 reviews, but an instructor determines the grade.
 
 ## Public access and evaluation evidence
 
@@ -148,4 +148,4 @@ The dashboard, repository and public release require no grader invitation. The g
 
 Credentials, raw source CSVs and working databases remain excluded. Golden-50 expected labels, original model predictions and per-review comparisons are public under `evals/` in both the repository and current evidence ZIP. No private handoff is required for these files. The local evaluation ZIP is only an optional duplicate package.
 
-Verified signed-out checks: [public URLs and artifact digest](reports/public-access.json); [clean clone and offline replay](reports/clean-clone-check.json). Submit or resubmit the repository URL through bCourses; no new submission has been made for this update.
+Verified signed-out checks: [public URLs and artifact digest](reports/public-access.json); [clean clone and offline replay](reports/clean-clone-check.json). The repository URL was resubmitted through bCourses on October 20 at 11:08 p.m. Pacific.
