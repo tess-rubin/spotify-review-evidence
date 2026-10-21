@@ -1,0 +1,246 @@
+{
+  "scope": "100000-review partial cohort",
+  "paid_model_calls": 0,
+  "production_labels_changed": false,
+  "baseline_export_changed": false,
+  "exact_text_policy": "Exact original Python string equality; first source-order record retained once. No normalization. Conflicting duplicate classifications cause failure. These are distinct texts, not distinct people.",
+  "flag_policy": "Independent check excluding all needs_review=true records; no deduplication in this scenario. Flags are model outputs, not calibrated uncertainty.",
+  "source_sha256": {
+    "grading/records.jsonl.gz": "b41964655d5d73538dc6591d41441fd3a0134258f80be1325ca4245dcaafb670",
+    "grading/analysis_scope.csv": "ceddd4493ad162776cfbc45e24eb3cd35f6d84b3c2d00a1616b9e7cb1f86ae2a",
+    "grading/ranking.csv": "4f4888309c92a618ea99847a25a066b08db9c45183c1c5fb228b83cc13b0d709"
+  },
+  "scenarios": {
+    "baseline": {
+      "retained_classifications": 100000,
+      "excluded_classifications": 0,
+      "ranking": [
+        {
+          "rank": 1,
+          "issue_id": "issue-playback",
+          "complaint_count": 10033,
+          "severity_sum": 32914,
+          "priority_score": 32914,
+          "mean_severity": "3.280574"
+        },
+        {
+          "rank": 2,
+          "issue_id": "issue-usability",
+          "complaint_count": 12001,
+          "severity_sum": 31585,
+          "priority_score": 31585,
+          "mean_severity": "2.631864"
+        },
+        {
+          "rank": 3,
+          "issue_id": "issue-billing",
+          "complaint_count": 2366,
+          "severity_sum": 6978,
+          "priority_score": 6978,
+          "mean_severity": "2.949281"
+        },
+        {
+          "rank": 4,
+          "issue_id": "issue-catalog",
+          "complaint_count": 2518,
+          "severity_sum": 6914,
+          "priority_score": 6914,
+          "mean_severity": "2.745830"
+        },
+        {
+          "rank": 5,
+          "issue_id": "issue-other",
+          "complaint_count": 2994,
+          "severity_sum": 6215,
+          "priority_score": 6215,
+          "mean_severity": "2.075818"
+        },
+        {
+          "rank": 6,
+          "issue_id": "issue-downloads",
+          "complaint_count": 1335,
+          "severity_sum": 4298,
+          "priority_score": 4298,
+          "mean_severity": "3.219476"
+        },
+        {
+          "rank": 7,
+          "issue_id": "issue-access",
+          "complaint_count": 1072,
+          "severity_sum": 3972,
+          "priority_score": 3972,
+          "mean_severity": "3.705224"
+        },
+        {
+          "rank": 8,
+          "issue_id": "issue-support",
+          "complaint_count": 102,
+          "severity_sum": 289,
+          "priority_score": 289,
+          "mean_severity": "2.833333"
+        }
+      ],
+      "playback_vs_usability": {
+        "playback_rank": 1,
+        "usability_rank": 2,
+        "playback_severity_sum": 32914,
+        "usability_severity_sum": 31585,
+        "playback_minus_usability": 1329
+      }
+    },
+    "exact_text_once": {
+      "retained_classifications": 78992,
+      "excluded_classifications": 21008,
+      "ranking": [
+        {
+          "rank": 1,
+          "issue_id": "issue-playback",
+          "complaint_count": 9991,
+          "severity_sum": 32769,
+          "priority_score": 32769,
+          "mean_severity": "3.279852"
+        },
+        {
+          "rank": 2,
+          "issue_id": "issue-usability",
+          "complaint_count": 11652,
+          "severity_sum": 30861,
+          "priority_score": 30861,
+          "mean_severity": "2.648558"
+        },
+        {
+          "rank": 3,
+          "issue_id": "issue-billing",
+          "complaint_count": 2361,
+          "severity_sum": 6968,
+          "priority_score": 6968,
+          "mean_severity": "2.951292"
+        },
+        {
+          "rank": 4,
+          "issue_id": "issue-catalog",
+          "complaint_count": 2517,
+          "severity_sum": 6911,
+          "priority_score": 6911,
+          "mean_severity": "2.745729"
+        },
+        {
+          "rank": 5,
+          "issue_id": "issue-other",
+          "complaint_count": 2507,
+          "severity_sum": 5240,
+          "priority_score": 5240,
+          "mean_severity": "2.090148"
+        },
+        {
+          "rank": 6,
+          "issue_id": "issue-downloads",
+          "complaint_count": 1334,
+          "severity_sum": 4295,
+          "priority_score": 4295,
+          "mean_severity": "3.219640"
+        },
+        {
+          "rank": 7,
+          "issue_id": "issue-access",
+          "complaint_count": 1066,
+          "severity_sum": 3949,
+          "priority_score": 3949,
+          "mean_severity": "3.704503"
+        },
+        {
+          "rank": 8,
+          "issue_id": "issue-support",
+          "complaint_count": 102,
+          "severity_sum": 289,
+          "priority_score": 289,
+          "mean_severity": "2.833333"
+        }
+      ],
+      "playback_vs_usability": {
+        "playback_rank": 1,
+        "usability_rank": 2,
+        "playback_severity_sum": 32769,
+        "usability_severity_sum": 30861,
+        "playback_minus_usability": 1908
+      }
+    },
+    "exclude_needs_review": {
+      "retained_classifications": 88593,
+      "excluded_classifications": 11407,
+      "ranking": [
+        {
+          "rank": 1,
+          "issue_id": "issue-playback",
+          "complaint_count": 9767,
+          "severity_sum": 32169,
+          "priority_score": 32169,
+          "mean_severity": "3.293642"
+        },
+        {
+          "rank": 2,
+          "issue_id": "issue-usability",
+          "complaint_count": 11748,
+          "severity_sum": 31030,
+          "priority_score": 31030,
+          "mean_severity": "2.641301"
+        },
+        {
+          "rank": 3,
+          "issue_id": "issue-billing",
+          "complaint_count": 2314,
+          "severity_sum": 6856,
+          "priority_score": 6856,
+          "mean_severity": "2.962835"
+        },
+        {
+          "rank": 4,
+          "issue_id": "issue-catalog",
+          "complaint_count": 2439,
+          "severity_sum": 6719,
+          "priority_score": 6719,
+          "mean_severity": "2.754818"
+        },
+        {
+          "rank": 5,
+          "issue_id": "issue-downloads",
+          "complaint_count": 1292,
+          "severity_sum": 4173,
+          "priority_score": 4173,
+          "mean_severity": "3.229876"
+        },
+        {
+          "rank": 6,
+          "issue_id": "issue-access",
+          "complaint_count": 1038,
+          "severity_sum": 3868,
+          "priority_score": 3868,
+          "mean_severity": "3.726397"
+        },
+        {
+          "rank": 7,
+          "issue_id": "issue-other",
+          "complaint_count": 1742,
+          "severity_sum": 3626,
+          "priority_score": 3626,
+          "mean_severity": "2.081515"
+        },
+        {
+          "rank": 8,
+          "issue_id": "issue-support",
+          "complaint_count": 94,
+          "severity_sum": 272,
+          "priority_score": 272,
+          "mean_severity": "2.893617"
+        }
+      ],
+      "playback_vs_usability": {
+        "playback_rank": 1,
+        "usability_rank": 2,
+        "playback_severity_sum": 32169,
+        "usability_severity_sum": 31030,
+        "playback_minus_usability": 1139
+      }
+    }
+  }
+}

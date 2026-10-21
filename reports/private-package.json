@@ -1,10 +1,14 @@
 {
   "status": "passed",
   "private_archive": "spotify-private-evaluation.zip",
-  "bytes": 14939,
-  "sha256": "47cb475208f84e4db9b3ae44a65de129e66c166c2a4cbae86c5b2a2852574eed",
-  "files": 6,
+  "bytes": 16475,
+  "sha256": "d0028a0a5dd57849698bf6c9d90ae4f84d77d62673c313e70c563c9c34bbe27a",
+  "files": 8,
   "human_labels_rows": 50,
+  "original_per_review_comparisons": 50,
+  "selected_private_diagnostic_cases": 3,
+  "source_labels_identical": true,
+  "source_comparisons_identical": true,
   "publicly_uploaded": false,
   "credentials_included": false
 }

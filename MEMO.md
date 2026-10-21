@@ -55,6 +55,36 @@ Exact table claims by issue:
 - issue-access: `issue-access-complaint_count`, `issue-access-severity_sum`, `issue-access-priority_score`, `issue-access-mean_severity`.
 - issue-support: `issue-support-complaint_count`, `issue-support-severity_sum`, `issue-support-priority_score`, `issue-support-mean_severity`.
 
+## Offline ranking sensitivity — baseline retained
+
+These are separate descriptive stress tests on saved labels, not corrected classifications or alternative grading exports. Original baseline values above remain unchanged. Reproduce with `python3 pipeline/ranking_sensitivity.py`; complete results and input hashes: `reports/ranking-sensitivity.json`.
+
+| Scenario | Classified records retained | Playback score (rank) | Usability score (rank) | Playback lead |
+|---|---:|---:|---:|---:|
+| Required baseline | 100,000 | 32,914 (1) | 31,585 (2) | 1,329 |
+| Each exact original text once | 78,992 | 32,769 (1) | 30,861 (2) | 1,908 |
+| Exclude needs_review=true | 88,593 | 32,169 (1) | 31,030 (2) | 1,139 |
+
+Playback remains first and usability second in both checks. Exact-text deduplication removes 21,008 classified source records and preserves the entire issue order; the playback lead widens from 1,329 to 1,908 severity points. Excluding 11,407 flagged records narrows the lead to 1,139: other falls from fifth to seventh, while downloads rises from sixth to fifth and access from seventh to sixth. This supports the direction of the playback investigation within these two checks, not statistical significance or population robustness. Distinct texts are not distinct customers. Model review flags are not calibrated uncertainty, and excluding flagged records may remove harder cases selectively.
+
+## Proposed investigation and success measurements
+
+Investigate startup and first-track playback failures first: reproduce clean launch, app/OS update, background resume and network-change paths; capture structured error codes and trace startup, authentication, track resolution, buffering and decoder initialization. Stratify by device/OS/app version, connectivity and plan, and compare affected paths with unaffected controls. Treat the historical Samsung/update quote as one reproduction lead, not a diagnosis of current failures. Handle shuffle/control complaints as a separate usability workstream.
+
+**Proposed measurements; not observed results:** instrument eligible play attempts with a documented attempt ID and timeout. Playback-start failure rate = attempts that error or produce no audible playback by the predefined timeout divided by eligible play attempts. Record exclusions and retries consistently; report successful-start latency alongside failures so slow starts are not hidden. Crash-free listening sessions = eligible listening sessions without a fatal app crash divided by all eligible listening sessions, using a fixed session boundary. Validate crash and playback telemetry completeness, including sessions that never start audio.
+
+Establish a prospective baseline before setting numerical targets. Evaluate a candidate fix against a randomized holdback where feasible, or a documented staged rollout with comparable cohorts; predeclare the observation window, minimum sample and confidence-interval method. Success would mean a lower playback-start failure rate with uncertainty reported, improved crash-free sessions, and no material regression in start latency, rebuffering or battery use. Set acceptable guardrails before rollout. None of these rates, targets, experiments or improvements was measured in this review corpus; no retention, revenue or causal gain is claimed.
+
+## Diagnostic error analysis — no retuning
+
+Three existing model–human disagreements were inspected after the production run. Individual review IDs, texts and human/prediction pairs remain in the private evaluation ZIP; the following summaries disclose only the error mechanisms. Original agreement remains 74% topic, 80% intent and 66% severity. Human answers are diagnostic annotations, not automatically authoritative when wording conflicts with the shared contract. No labels, prompts or ranking inputs were revised.
+
+- **Mixed lyrics and playback/control problems:** the highest supported severity selects the primary problem; if severities tie, choose the first specific problem mentioned. Missing lyrics generally concerns catalog availability, while a blocked core playback task can support a higher severity. Inventing total loss from a restricted control would overstate severity. Such boundary errors can move severity points between catalog and playback and alter their relative priorities.
+- **Ad-frequency complaint phrased as a request:** the contract gives a reported negative experience precedence over a desired change. A pure feature request has severity one; a described annoyance or degraded function needs its own supported severity. A request/complaint boundary error can omit a real annoyance from the complaint-only ranking or include a pure wish in it, affecting usability counts.
+- **App launch/playback failure with angry or star language:** explicit inability to open the app or play supports blocked-core-task severity; anger or a low rating alone does not. Recovery or a workaround changes the interpretation. The inspected pair illustrates that disagreement can also reflect a human annotation that deserves contract-based review; it is not evidence that every model score should be lowered. Severity errors can expand or narrow the playback–usability gap.
+
+These examples explain plausible mechanisms, not measured corrections to the 100,000 labels. Their frequency and net effect cannot be inferred from a few selected disagreements. Keep a fresh blind set for any future tuning decision.
+
 ## Limits and next decision
 
 The cohort is self-selected, historical, partial and not population-representative. Primary topics are coarse and do not establish root causes. Exact duplicates contribute separate records to business counts, so repeated language can concentrate scores. Golden-50 disagreement is substantial; provenance and schema checks do not prove label correctness. Sentiment and review flags lack completed human gold labels, and entities were not extracted. A golden-informed experimental prompt was rejected; the original frozen classifier produced this ranking.

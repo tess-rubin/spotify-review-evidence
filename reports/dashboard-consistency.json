@@ -14,5 +14,6 @@
   "cost_and_unknown_reservations_match_shared_ledger": true,
   "api_cost_usd": 1.408313,
   "unknown_reserved_usd": 0.007535,
-  "saved_version": 5
+  "saved_version": 6,
+  "sensitivity_matches_saved_offline_report": true
 }

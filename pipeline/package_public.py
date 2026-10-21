@@ -13,7 +13,7 @@ def build():
   p=ROOT/'evidence/hosted'/name
   if p.exists():files.append(p)
  files.extend(p for p in (ROOT/'cost').glob('hosted-*') if p.is_file() and not p.name.endswith('console.json'))
- for name in ('README.md','MEMO.md','LABELS.md','cost/README.md'):
+ for name in ('README.md','MEMO.md','LABELS.md','cost/README.md','pipeline/ranking_sensitivity.py','tests/test_ranking_sensitivity.py'):
   files.append(ROOT/name)
  secrets=[]
  for line in (ROOT/'.env').read_text().splitlines():

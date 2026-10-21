@@ -63,6 +63,14 @@ Memo generation receives saved aggregates and two source examples per issue. The
 
 The dashboard stores all final issue aggregates/recommendations, the coverage snapshot and a 400-review evidence sample in D1. The complete 100,000 classified records and 660,622-row accounting are in the downloadable export, not all hosted as searchable D1 rows. Its HTTP API and browser were tested against SQLite ranking/citations. The 66,577 old Gemma rows are never merged into hosted coverage.
 
+## Offline sensitivity and proposed investigation
+
+[Memo](MEMO.md) and [reproducible sensitivity report](reports/ranking-sensitivity.json) retain the required baseline. Playback/usability severity sums are 32,914/31,585 in the baseline, 32,769/30,861 counting each exact original text once, and 32,169/31,030 excluding `needs_review=true` independently. Playback remains first and usability second. Flag exclusion moves other from fifth to seventh, downloads to fifth and access to sixth. These checks do not establish statistical significance or correct label errors.
+
+Run `python3 pipeline/ranking_sensitivity.py` after extracting the release; it reads saved records and original analysis texts, verifies baseline equality and writes only a separate report. No model, credentials or network is required. Deduplication uses exact strings and counts distinct texts, not people; flags are model decisions, not calibrated uncertainty.
+
+The memo specifies a bounded startup/playback investigation and **proposed**, unobserved measurements: playback-start failure rate and crash-free listening sessions, with fixed denominators, prospective baselines and rollout guardrails. Three existing disagreement mechanisms are discussed without publishing individual human labels, review IDs or model–human pairs. Detailed diagnostic cases are in the private ZIP. No prompt, classification or original evaluation score was changed.
+
 ## Evaluation and inspected failures
 
 The production profile was frozen before the original golden score. All 50 predictions are valid. Sentiment/needs_review lack completed human gold answers, so their human accuracy is not invented. The blind verifier agreed on all ten sampled topic/intent/severity triples; seven sentiment values and one review flag differed. Original classifications were retained.
@@ -93,6 +101,7 @@ Python 3.10+ standard library; Node 18+ for Worker syntax/build checks. No key o
 python3 cost/hosted_calculator.py
 python3 cost/hosted_calculator.py --volume 200000 --rate-multiplier 2
 python3 pipeline/rank_export.py --records grading/records.jsonl.gz --membership grading/membership.csv --out /tmp/ranking.csv
+python3 pipeline/ranking_sensitivity.py
 python3 -m unittest discover -s tests -p test_hosted.py
 ```
 
@@ -137,3 +146,5 @@ The separate full-source accounting export retains all 660,622 IDs and the 13 em
 The dashboard is public and needs no grader invitation. GitHub source and the sanitized release are intended for signed-out inspection. Human golden answers and per-review human comparisons are intentionally excluded from public GitHub and its release; the separate local `spotify-private-evaluation.zip` contains those files for an approved private handoff. No email is needed for the public artifacts, and no private evidence has been sent. The final public repository URL is the course submission deliverable; the student must submit it through bCourses.
 
 Verified signed-out checks: [public URLs and artifact digest](reports/public-access.json); [clean clone, offline replay and ranking reproduction](reports/clean-clone-check.json). No grader invitation is required for the public site or repository. Private human-answer evidence is a separate handoff.
+
+Private evaluation delivery: attach `spotify-private-evaluation.zip` only to an instructor-approved private bCourses file submission if available. A public website/repository URL alone does not deliver private human evidence. If the course offers only URL submission, request the instructor’s approved private channel before sending. No email or transfer has been initiated. Rebuild locally with `python3 pipeline/package_private.py`.
